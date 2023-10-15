@@ -10,7 +10,7 @@ class RegisterController extends Controller
 {
     public function register(CreateUserRequest $request,UserRepository $userRepository)
     {
-        $user = $userRepository->create($request);
+        $userRepository->create($request);
 
         return response()->json(['message'=>'success','data'=>'user has been created successfully'],201);
         
