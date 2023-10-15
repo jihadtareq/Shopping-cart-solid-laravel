@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('type_id');
-            $table->string('otp');
+            $table->string('otp')->nullable();
             $table->string('gender')->enum('male','female');
             $table->date('birthday');
             $table->boolean('active');
