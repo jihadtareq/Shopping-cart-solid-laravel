@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('otp');
             $table->string('gender')->enum('male','female');
             $table->date('birthday');
-            $table->boolean('status');
+            $table->boolean('active');
             $table->unsignedBigInteger('country_id');
             $table->rememberToken();
             $table->timestamps();
