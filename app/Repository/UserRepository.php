@@ -6,21 +6,22 @@ use Illuminate\Support\Facades\Request;
 use App\Models\User;
 class UserRepository implements UserRepositoryInterface
 {
-    public function create(Request $request)
+    public function create($request)
     {
         $user = New User();
         $user->name =  $request->name;
         $user->email =  $request->email;
         $user->phone =  $request->phone;
+        $user->type_id =  $request->typeId;
         $user->password =  bcrypt($request->password);
         $user->gender =  $request->gender;
         $user->birthday =  $request->birthday;
-        $user->country_id =  $request->country_id;
+        $user->country_id =  $request->countryId;
         $user->active = 1 ;
         $user->save();
     }
     
-    public function update($id,Request $request) 
+    public function update($id,$request) 
     {
         $user = User::find($id);
         $user->name =  $request->name;
