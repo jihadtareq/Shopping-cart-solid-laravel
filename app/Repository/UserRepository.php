@@ -6,6 +6,13 @@ use Illuminate\Support\Facades\Request;
 use App\Models\User;
 class UserRepository implements UserRepositoryInterface
 {
+
+    private $user;
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+        
+    }
     public function create($request)
     {
         $user = New User();
@@ -38,5 +45,21 @@ class UserRepository implements UserRepositoryInterface
         $user = User::find($id);
         $user->password = $password;
         $user->save();
+    }
+
+    public function all()
+    {
+        return $this->user->all();
+    }
+
+    public function getUnactiveUsers()
+    {
+        return $this->user->where('active',1)->get();
+    }
+
+    function getUser($Id)
+    {
+        return $this->user->find($Id);
+
     }
 }
