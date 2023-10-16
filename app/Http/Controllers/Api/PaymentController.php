@@ -19,7 +19,6 @@ class PaymentController extends Controller
 
     public function status(Request $request)
     {
-        // according to liskov substitution we can use any status service without any error
         $response = new CheckoutStatusService();
         
 
